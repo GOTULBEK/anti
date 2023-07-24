@@ -30,6 +30,7 @@ function addPeople() {
     peopleData.push({
       name: '',
       time: 0,
+      price: 0,
     });
   }
 
@@ -143,6 +144,7 @@ function howManyHours() {
         <div>
           <p class="showName">${person.name}</p>
           <p class="timerValue">${formatTime(person.time)}</p>
+          <p class = "showPrice">${person.price} тенге </p>
         </div>
         <input placeholder="Минуты" class="inputForTime" onkeydown="handleTimeInput(event, ${index})">
         <button class="buttonForTimer" id="js-buttonForTimer">Добавить время</button>
@@ -204,11 +206,36 @@ function howManyHours() {
         // function is responsible for updating the timer interval for the person at the given index, ensuring that the timer continues to count down
         updateTimerInterval(index);
 
-        // save data to local storage 
+        // Calculate the price and update the display
+        const price = calculatePrice(minutes);
+        const showPriceElement = document.querySelector(`#timer-${index} .showPrice`);
+        showPriceElement.textContent = `${price} тенге`;
+
+        peopleData[index].price = price; // Save the calculated price in the data array
         saveDataToLocalStorage();
       }
     });
   });
+}
+// function for calculating price comes from minute
+function calculatePrice(minutes) {
+  if (minutes >= 240) {
+    return 4000;
+  } else if (minutes > 60 && minutes <= 90) {
+    return 1500;
+  } else if (minutes <= 60) {
+    return 1000;
+  } else if (minutes > 90 && minutes <= 120) {
+    return 2000;
+  } else if (minutes > 120 && minutes <= 150) {
+    return 2500;
+  } else if (minutes > 150 && minutes <= 180) {
+    return 3000;
+  } else if (minutes > 180 && minutes <= 210) {
+    return 3500;
+  } else if (minutes > 210 && minutes < 240) {
+    return 4000;
+  }
 }
 
 // this function helps to maintain the running timers for each person even after adding new people
@@ -299,7 +326,14 @@ function handleTimeInput(event, index) {
       peopleData[index].time += secondsToAdd; // this updates the total time associated with the person
       updateTimerInterval(index);
 
-      // save data to local storage 
+      // calculate the price and update the display
+      const price = calculatePrice(minutes);
+
+      // declare and define the showPriceElement variable here
+      const showPriceElement = document.querySelector(`#timer-${index} .showPrice`);
+      showPriceElement.textContent = `${price} тенге`;
+
+      peopleData[index].price = price; // save the calculated price in the data array
       saveDataToLocalStorage();
     }
   }
@@ -310,7 +344,6 @@ loadDataFromLocalStorage();
 // update the timers and display
 updateTimers();
 howManyHours();
-
 
 const inputForPeopleElement = document.querySelector('.howManyPeople');
 // getting the addEventListener for 'keydown' and Enter its 13 button
@@ -323,6 +356,10 @@ inputForPeopleElement.addEventListener('keydown', (event) => {
 
 // function to delete all people and their timers
 function deleteAllPeople() {
+  // Clear the timer intervals for each person
+  peopleData.forEach((person) => {
+    clearInterval(person.timerInterval);
+  });
   // clear the arrays
   peopleArray.length = 0;
   peopleData.length = 0;
@@ -345,4 +382,3 @@ function playSound() {
   const audio = new Audio('sound-effect.wav');
   audio.play();
 }
-
