@@ -50,8 +50,8 @@ body {
 }
 .input-box i {
   position: absolute;
-  right: 20px;
-  transform: translateY(-50%);
+  right: 55px;
+  transform: translateY(+68%);
   font-size: 20px;
 }
 .wrapper .btn {
@@ -66,4 +66,3 @@ body {
   color: #333;
   font-weight: 600;
 }
-
