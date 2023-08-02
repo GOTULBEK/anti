@@ -1,0 +1,115 @@
+body {
+  background: linear-gradient(to bottom, #33857B, #A4B0AF);
+}
+.welcome-text {
+  font-weight: bold;
+  font-family: Arial;
+  text-align: center;
+  font-size: 40px;
+  color: pink;
+  margin-bottom: 20px;
+}
+.howManyPeople {
+  padding-right: 100px;
+  height: 30px;
+  width: 170px;
+  border-radius: 12px;
+  margin-left: 541px;
+  margin-right: 20px;
+  border: none;
+}
+.accept {
+  cursor: pointer;
+  background-color: rgb(49, 173, 136);
+  color: white;
+  border-radius: 12px;
+  border: none;
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(to bottom, #31AD88, #215344);
+  transition: opacity 0.15s;
+}
+.accept:hover {
+  opacity: 0.9;
+}
+.separate {
+  margin-right: 20px;
+}
+.js-howManyHours {
+  margin-bottom: 15px;
+  display: grid;
+  place-items: center;
+}
+.showName {
+  color: WHITE;
+  font-weight: bold;
+  font-size: 22px;
+}
+.buttonForDeleteTime {
+  margin-left: 10px;
+}
+.personIndex {
+  margin-right: 350px;
+  font-size: 20px;
+}
+.inputForName {
+  border-radius: 12px;
+  border: none;
+  margin-right: 20px;
+  height: 25px;
+}
+.inputForTime {
+  border-radius: 12px;
+  border: none;
+  height: 25px;
+  margin-right: 20px;
+}
+.buttonChange {
+  border-radius: 10px;
+  border: none;
+  height: 25px;
+  cursor: pointer;
+}
+.buttonForTimer {
+  border-radius: 10px;
+  border: none;
+  height: 25px;
+  cursor: pointer; 
+}
+.buttonForDeleteTime {
+  border-radius: 10px;
+  border: none;
+  height: 25px;
+  cursor: pointer;
+  color: red;
+}
+.timerValue {
+  font-size: 20px;
+}
+.delete-btn {
+  border-radius: 10px;
+  border: none;
+  height: 25px;
+  cursor: pointer;
+}
+.showPrice {
+  margin-right: 70px;
+}
+.vipButton {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.normalButton {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.createNewPageButton {
+  margin-left: 1350px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+}
+
